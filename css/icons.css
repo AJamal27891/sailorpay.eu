@@ -1,0 +1,189 @@
+/* Icons CSS */
+
+/* Icon base styles */
+.icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+}
+
+/* Payment method icons */
+.icon--altpay--AltPayNewNew_VISA::before {
+    content: "VISA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #1a1f71;
+}
+
+.icon--altpay--AltPayNewNew_MasterCard::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #eb001b;
+    border-radius: 50%;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon--altpay--AltPayNewNew_MasterCard::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #f79e1b;
+    border-radius: 50%;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon--altpay--AltPayNewNew_AmericanExpress::before {
+    content: "AMEX";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #006fcf;
+}
+
+.icon--altpay--AltPayNewNew_Discover::before {
+    content: "DISC";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+.icon--altpay--AltPayNewNew_JCB::before {
+    content: "JCB";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #0f4c81;
+}
+
+.icon--altpay--AltPayNewNew_DinersClub::before {
+    content: "DC";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #0079be;
+}
+
+.icon--altpay--AltPayNewNew_ChinaUnionPay::before {
+    content: "CUP";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #b10101;
+}
+
+.icon--altpay--AltPayNewNew_vPay::before {
+    content: "VPAY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #1a1f71;
+}
+
+.icon--altpay--AltPayNewNew_Maestro::before {
+    content: "MAES";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #0099df;
+}
+
+/* Feature icons */
+.icon--main--MultiCurrency-gradient {
+    background: linear-gradient(135deg, #226191, #184a73);
+    width: 60px;
+    height: 60px;
+}
+
+.icon--main--MultiCurrency-gradient::before {
+    content: "$€£";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.icon--main--Lock-gradient {
+    background: linear-gradient(135deg, #226191, #184a73);
+    width: 60px;
+    height: 60px;
+}
+
+.icon--main--Lock-gradient::before {
+    content: "🔒";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+}
+
+.icon--main--Wand {
+    background: linear-gradient(135deg, #226191, #184a73);
+    width: 60px;
+    height: 60px;
+}
+
+.icon--main--Wand::before {
+    content: "✨";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+}
+
+/* Icon container styles */
+.icon-container {
+    display: inline-block;
+    margin: 10px;
+}
+
+.icon-only-block {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    justify-content: center;
+}

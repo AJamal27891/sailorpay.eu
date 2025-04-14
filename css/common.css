@@ -1,0 +1,155 @@
+/* Common styles for all pages */
+
+/* Social Media Links */
+.contact-info .linkedin-link,
+.contact-info .whatsapp-link,
+.social-links .linkedin-link,
+.social-links .whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-info .linkedin-link,
+.social-links .linkedin-link {
+    background-color: #0077B5;
+}
+
+.contact-info .linkedin-link:hover,
+.social-links .linkedin-link:hover {
+    background-color: #005e93;
+    text-decoration: none;
+}
+
+.contact-info .whatsapp-link,
+.social-links .whatsapp-link {
+    background-color: #25D366;
+}
+
+.contact-info .whatsapp-link:hover,
+.social-links .whatsapp-link:hover {
+    background-color: #128C7E;
+    text-decoration: none;
+}
+
+.contact-info .linkedin-link i,
+.contact-info .whatsapp-link i,
+.social-links .linkedin-link i,
+.social-links .whatsapp-link i {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.social-contact-links {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.social-contact-links p {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+/* Text styles */
+.blueText {
+    color: #226191;
+}
+
+.largeText {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.subheading {
+    color: #226191;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    background-color: #226191;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #184a73;
+}
+
+/* List styles */
+.checkList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.checkList li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.checkList li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #226191;
+    font-weight: bold;
+}
+
+.checkList--oneLine li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Section styles */
+section {
+    padding: 40px 0;
+}
+
+/* Column alignment */
+.col--alignCenter {
+    text-align: center;
+}
+
+.col--alignLeft {
+    text-align: left;
+}
+
+.col--alignRight {
+    text-align: right;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .col {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    .checkList--oneLine li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .icon-only-block {
+        justify-content: center;
+    }
+}

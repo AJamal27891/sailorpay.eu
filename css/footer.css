@@ -1,0 +1,211 @@
+/* Footer Styles for SailorPay Improved */
+
+.site-footer {
+    background: linear-gradient(135deg, #226191, #184a73);
+    color: #fff;
+    padding: 0;
+}
+
+.footer-menus {
+    padding: 50px 0 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.widget-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 30px;
+}
+
+.footer-menus .widget-title:first-child {
+    margin-top: 0;
+}
+
+.site-footer .menu {
+    list-style: none;
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+.site-footer .menu li {
+    margin-bottom: 10px;
+}
+
+.site-footer .menu li a {
+    color: #e6e6e6;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.site-footer .menu li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Footer styles now use variables from variables.css */
+
+#footer-bottom {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--primary-dark);
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-left, .footer-center, .footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-left {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.footer-center {
+    flex: 2;
+    justify-content: center;
+}
+
+.footer-right {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-md);
+    text-align: center;
+}
+
+.footer-logo {
+    display: inline-block;
+}
+
+.footer-logo img {
+    filter: none;
+}
+
+.disclaimer {
+    font-size: 12px;
+    color: var(--neutral-100);
+    margin: var(--spacing-xs) 0;
+    text-align: center;
+}
+
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-contact-info a {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.footer-contact-info .email-link,
+.footer-contact-info .linkedin-link,
+.footer-contact-info .whatsapp-link {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-contact-info .email-link:hover,
+.footer-contact-info .linkedin-link:hover,
+.footer-contact-info .whatsapp-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.payment-logo-img {
+    height: 40px;
+    margin: 0 10px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.payment-logo-img:hover {
+    transform: translateY(-3px);
+}
+
+.payment-logo {
+    width: 60px;
+    height: 40px;
+    margin-left: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .site-footer .col {
+        width: 33.33%;
+    }
+
+    .payment-logos {
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+
+    .payment-logos {
+        margin: 15px 0;
+    }
+
+    .footer-contact-info {
+        margin-bottom: 10px;
+    }
+}
+
+/* Remove footer-copyright as it's no longer used */
+
+@media (max-width: 576px) {
+    .site-footer .col {
+        width: 100%;
+    }
+}

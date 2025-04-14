@@ -1,0 +1,433 @@
+/* Navbar Styles for SailorPay Improved */
+
+.main-navigation {
+    display: flex; /* Show the main navigation */
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    width: 100%;
+    transition: all var(--transition-normal);
+}
+
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation ul li {
+    margin-right: var(--spacing-lg);
+    position: relative;
+}
+
+.main-navigation ul li a {
+    color: var(--neutral-100);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    padding: var(--spacing-xs) 0;
+    transition: color var(--transition-normal);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.main-navigation ul li a:hover {
+    color: var(--neutral-300);
+    text-decoration: underline;
+}
+
+.main-navigation ul li.current-menu-item > a {
+    color: var(--neutral-100);
+    font-weight: var(--font-weight-bold);
+    border-bottom: 2px solid var(--neutral-100);
+}
+
+/* Dropdown Menu */
+.main-navigation ul li .sub-menu,
+.slide-menu ul li .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 200px;
+    z-index: 999;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+.main-navigation ul li:hover > .sub-menu {
+    display: block;
+}
+
+.main-navigation ul li .sub-menu li {
+    margin: 0;
+    width: 100%;
+}
+
+.main-navigation ul li .sub-menu li a {
+    padding: 8px 15px;
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.main-navigation ul li .sub-menu li a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Mobile Dropdown */
+.slide-menu ul li {
+    position: relative;
+}
+
+.slide-menu ul li .sub-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    padding-left: 20px;
+    background: transparent;
+}
+
+.slide-menu ul li.active > .sub-menu {
+    display: block;
+}
+
+.slide-menu ul li a {
+    display: block;
+    padding: 10px 0;
+}
+
+/* Top Contact Info */
+.top-contact-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-contact-info a {
+    margin-left: 20px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.top-contact-info a:hover {
+    text-decoration: underline;
+}
+
+.top-contact-info a i {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.email-link {
+    padding: 5px 10px;
+}
+
+.whatsapp-link {
+    background-color: #25D366;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.whatsapp-link:hover {
+    background-color: #128C7E;
+    text-decoration: none !important;
+}
+
+.linkedin-link {
+    background-color: #0077B5;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.linkedin-link:hover {
+    background-color: #005e93;
+    text-decoration: none !important;
+}
+
+.linkedin-link i, .whatsapp-link i {
+    font-size: 18px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    padding: 10px;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: #fff;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    z-index: 1000;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 8px 0;
+    background-color: #005fa3; /* Match the navbar color */
+}
+
+.header-contact-info {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 993px) {
+    .header-contact-info .hamburger {
+        display: none !important;
+    }
+}
+
+.header-contact-info a {
+    margin-right: 15px;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.email-link {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.linkedin-link {
+    background-color: #0077B5;
+}
+
+.whatsapp-link {
+    background-color: #25D366;
+}
+
+.header-contact-info a:hover {
+    opacity: 0.8;
+}
+
+.mobile-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -210px; /* Start off-screen (reduced by 30%) */
+    width: 210px; /* Reduced by 30% from 300px */
+    height: 100vh;
+    background-color: #184a73;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    z-index: 999;
+    padding: 80px 15px 15px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+.mobile-menu.active {
+    right: 0; /* Slide in from right */
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.mobile-menu ul li {
+    margin-bottom: 15px;
+}
+
+.mobile-menu ul li a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 5px;
+}
+
+@media (max-width: 992px) {
+    .main-navigation {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+    }
+
+    .hamburger {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu {
+        transition: right 0.3s ease-in-out, opacity 0.3s ease;
+    }
+}
+
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active:hover {
+    opacity: 0.7;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #fff;
+}
+
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+/* Hamburger Animation */
+.hamburger--spin .hamburger-inner {
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+
+.hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Mobile Menu */
+.slide-menu {
+    display: block; /* Always show the slide menu structure */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+    transform: translateX(-100%); /* Hide it off-screen by default */
+    transition: transform 0.3s ease;
+}
+
+.slide-menu.is-active {
+    transform: translateX(0);
+}
+
+.slide-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slide-menu ul li {
+    margin-bottom: 15px;
+}
+
+.slide-menu ul li a {
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.slide-menu ul li a:hover {
+    color: #226191;
+}
+
+.slide-menu ul li.current-menu-item a {
+    color: #226191;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .site-branding {
+        text-align: center;
+        padding: 15px 0;
+    }
+}

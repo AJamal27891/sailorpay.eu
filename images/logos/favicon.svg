@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .background { fill: #226191; }
+    .icon { fill: #ffffff; }
+  </style>
+  <rect class="background" x="0" y="0" width="64" height="64" rx="5" ry="5" />
+  <g transform="translate(32, 32)">
+    <!-- Circular icon -->
+    <circle class="icon" cx="0" cy="0" r="8" />
+    <!-- Arcs around the circle -->
+    <path class="icon" d="M0,-16 A16,16 0 0,1 13.86,8 L12.47,7.2 A14.4,14.4 0 0,0 0,-14.4 Z" />
+    <path class="icon" d="M0,-20 A20,20 0 0,1 17.32,10 L15.93,9.2 A18.4,18.4 0 0,0 0,-18.4 Z" />
+    <path class="icon" d="M0,-24 A24,24 0 0,1 20.78,12 L19.39,11.2 A22.4,22.4 0 0,0 0,-22.4 Z" />
+  </g>
+</svg>

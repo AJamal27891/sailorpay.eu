@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="220" height="73" viewBox="0 0 220 73" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: 'Archivo Black', sans-serif; font-size: 28px; fill: #226191; }
+    .tagline { font-family: 'Montserrat', sans-serif; font-size: 12px; fill: #226191; }
+    .icon { fill: #226191; }
+  </style>
+  <g>
+    <path class="icon" d="M30,15 C25,15 20,20 20,30 C20,40 25,45 30,45 C35,45 40,40 40,30 C40,20 35,15 30,15 Z M30,40 C27,40 25,36 25,30 C25,24 27,20 30,20 C33,20 35,24 35,30 C35,36 33,40 30,40 Z"/>
+    <path class="icon" d="M30,50 L30,60 M20,60 L40,60"/>
+    <text x="55" y="40" class="logo-text">SailorPay</text>
+    <text x="55" y="55" class="tagline">Navigating Payments, Your Way</text>
+  </g>
+</svg>

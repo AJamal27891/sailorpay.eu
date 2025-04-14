@@ -1,0 +1,562 @@
+/* Main Styles for SailorPay Improved */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif;
+    margin-bottom: 20px;
+    color: #226191;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #226191;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #184a73;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Layout */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
+
+/* Header */
+.site-header {
+    background-color: #005fa3; /* Changed to match the navbar color */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+    margin-bottom: 0; /* Ensure no margin at the bottom */
+    padding-bottom: 0; /* Ensure no padding at the bottom */
+}
+
+.top-bar {
+    background-color: #226191;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.top-bar a:hover {
+    color: #e6e6e6;
+}
+
+.find-us-text {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.top-contact-info {
+    display: flex;
+    align-items: center;
+}
+
+.top-contact-info a {
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+/* Logo animation styles using variables */
+.site-branding {
+    padding: var(--spacing-xs) 0;
+    transition: all var(--transition-slow);
+}
+
+.site-branding img {
+    transition: all var(--transition-slow);
+    filter: brightness(1);
+}
+
+.site-header.scrolled .site-branding img {
+    transform: scale(0.9);
+    filter: brightness(1.05);
+    transition: all var(--transition-slow);
+}
+
+.site-header {
+    transition: none;
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-contact a {
+    font-weight: 500;
+    color: #226191;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+    margin-top: 0; /* Ensure no margin at the top */
+}
+
+section:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.hero-section {
+    background-color: #005fa3; /* Changed to match the navbar color */
+    padding: 80px 0;
+    margin-top: 0; /* Ensure no margin at the top */
+}
+
+.hero-image {
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature-box {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-box h3 {
+    margin-top: 20px;
+}
+
+.service-image {
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+#cta {
+    background-color: #226191;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+#cta h2, #cta p {
+    color: #fff;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background-color: #226191;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #184a73;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+    .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        width: 100%;
+    }
+
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .site-branding {
+        text-align: center;
+    }
+
+    .header-contact {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0;
+    }
+
+    .hero-section {
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .feature-box {
+        margin-bottom: 20px;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.col--alignCenter {
+    text-align: center;
+}
+
+.col--alignLeft {
+    text-align: left;
+}
+
+.col--alignRight {
+    text-align: right;
+}
+
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.features-row {
+    margin-top: 30px;
+}
+
+/* Mission Section */
+#mission {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.mission-statement {
+    font-size: 1.5em;
+    color: #226191;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.mission-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-box p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 0;
+}
+
+/* Cookie Consent Banner */
+.cookie-consent {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    z-index: 9999;
+    transition: bottom 0.5s ease;
+}
+
+.cookie-consent.active {
+    bottom: 0;
+}
+
+.cookie-consent p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.cookie-consent p:first-child {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cookie-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.cookie-button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cookie-button.accept {
+    background-color: #226191;
+    color: #fff;
+}
+
+.cookie-button.accept:hover {
+    background-color: #184a73;
+}
+
+.cookie-button.decline {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.cookie-button.decline:hover {
+    background-color: #ddd;
+}
+
+/* Email Form Styles */
+.email-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    max-width: 500px;
+}
+
+.email-form input[type="email"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+.email-form .button {
+    border-radius: 0 4px 4px 0;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.subscription-message {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.subscription-message.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.primary-button {
+    background-color: #226191 !important;
+    color: #ffffff !important;
+}
+
+.primary-button:hover {
+    background-color: #184a73 !important;
+    color: #ffffff !important;
+}
+
+/* Add JavaScript for email validation */
+.email-form input.error {
+    border-color: #dc3545;
+}
+
+.email-form .error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Service Placeholder Images */
+.service-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #f0f5fa;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fix for dark backgrounds - ensure text is light colored */
+.site-header,
+.full-width-banner,
+.hero-section,
+.page-banner,
+.site-footer,
+.darkBlueBkg,
+.slide-menu,
+[class*="dark"] {
+    color: #ffffff;
+}
+
+.site-header *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+.full-width-banner *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+.hero-section *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+.page-banner *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+.site-footer *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+.darkBlueBkg *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+.slide-menu *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]),
+[class*="dark"] *:not(a):not(.button):not([class*="primary"]):not([class*="secondary"]):not([class*="accent"]) {
+    color: #ffffff;
+}
+
+/* Ensure buttons on dark backgrounds have proper contrast */
+.site-header .button,
+.full-width-banner .button,
+.hero-section .button,
+.page-banner .button,
+.site-footer .button,
+.darkBlueBkg .button,
+.slide-menu .button,
+[class*="dark"] .button {
+    background-color: #ffffff;
+    color: #226191;
+}
+
+.site-header .button:hover,
+.full-width-banner .button:hover,
+.hero-section .button:hover,
+.page-banner .button:hover,
+.site-footer .button:hover,
+.darkBlueBkg .button:hover,
+.slide-menu .button:hover,
+[class*="dark"] .button:hover {
+    background-color: #e6e6e6;
+    color: #184a73;
+}
+
+.service-placeholder::before {
+    content: attr(data-service);
+    font-size: 24px;
+    font-weight: 600;
+    color: #226191;
+    text-align: center;
+    padding: 20px;
+}
+
+.service-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(34, 97, 145, 0.1), rgba(34, 97, 145, 0.2));
+    z-index: 1;
+}

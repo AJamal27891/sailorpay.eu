@@ -1,0 +1,145 @@
+/* Hero Banner Styles */
+
+.hero-section.full-width {
+    padding: 0;
+    margin-bottom: 40px;
+    margin-top: 0; /* Ensure no margin at the top */
+}
+
+.full-width-banner {
+    width: 100%;
+    background: linear-gradient(135deg, #0078d4, #005fa3);
+    padding: 80px 0;
+    margin-bottom: 40px;
+    margin-top: 0; /* Ensure no margin at the top */
+    position: relative;
+    overflow: hidden;
+    background-image: url('../images/banners/hero-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.full-width-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.85), rgba(0, 95, 163, 0.85));
+}
+
+.banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.banner-title {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-banner {
+    width: 100%;
+    height: 300px;
+    background-image: url('../images/banners/hero-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 97, 145, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Page Banner Styles */
+.page-banner {
+    width: 100%;
+    height: 200px;
+    background-color: #226191;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-banner h1 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0;
+}
+
+.feature-image-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 300px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 200px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+}

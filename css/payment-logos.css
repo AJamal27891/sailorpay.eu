@@ -1,0 +1,113 @@
+/* Payment Logos CSS */
+
+.payment-logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.payment-logo-img {
+    height: 40px;
+    margin: 0 10px;
+    object-fit: contain;
+}
+
+.payment-logo {
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 4px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Visa */
+.payment-logo.visa {
+    background-color: transparent;
+    background-image: url('../images/visa-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Mastercard */
+.payment-logo.mastercard {
+    background-color: transparent;
+    background-image: url('../images/mastercard-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* PCI Compliant */
+.payment-logo.pci {
+    background-color: transparent;
+    background-image: url('../images/pci-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-logo.pci::before {
+    content: "PCI DSS";
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* GDPR */
+.payment-logo.eu {
+    background-color: transparent;
+    background-image: url('../images/gdbr-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fallback styles for when images don't load */
+.payment-logo.visa:not([style*="background-image"])::before {
+    content: "VISA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a1f71;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.payment-logo.mastercard:not([style*="background-image"])::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #eb001b;
+    border-radius: 50%;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.payment-logo.mastercard:not([style*="background-image"])::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #f79e1b;
+    border-radius: 50%;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}

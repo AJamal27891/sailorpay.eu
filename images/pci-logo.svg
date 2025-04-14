@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40">
+  <rect width="60" height="40" fill="#ffffff"/>
+  <rect x="10" y="10" width="40" height="20" rx="2" ry="2" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+  <text x="30" y="23" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#333333">PCI DSS</text>
+  <path d="M15 15l2 2m0-2l-2 2" stroke="#333333" stroke-width="1"/>
+  <path d="M45 15l2 2m0-2l-2 2" stroke="#333333" stroke-width="1"/>
+  <path d="M15 25l2 2m0-2l-2 2" stroke="#333333" stroke-width="1"/>
+  <path d="M45 25l2 2m0-2l-2 2" stroke="#333333" stroke-width="1"/>
+</svg>

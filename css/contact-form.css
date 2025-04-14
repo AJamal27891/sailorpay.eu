@@ -1,0 +1,94 @@
+/* Contact Form Styles */
+
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-form {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #226191;
+    box-shadow: 0 0 0 2px rgba(34, 97, 145, 0.2);
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: #226191;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.contact-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-item p {
+    margin: 0;
+    color: #666;
+}
+
+.contact-item a {
+    color: #226191;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .contact-section .col-6 {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .contact-info {
+        margin-top: 30px;
+    }
+}
