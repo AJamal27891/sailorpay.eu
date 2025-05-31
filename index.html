@@ -62,18 +62,18 @@
                     <ul id="primary-menu" class="menu">
                         <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
                         <li class="menu-item"><a href="services.html">Services</a></li>
-                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li class="menu-item"><a href="imprint.html">Imprint / Contact</a></li>
+                        <li class="menu-item"><a href="#company">Company</a></li>
+                        <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
 
-            <div class="mobile-menu" id="mobile-menu" style="right: -210px;">
+            <div class="mobile-menu" id="mobile-menu" style="left: -210px;">
                 <ul class="menu">
                     <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
                     <li class="menu-item"><a href="services.html">Services</a></li>
-                    <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li class="menu-item"><a href="imprint.html">Imprint / Contact</a></li>
+                    <li class="menu-item"><a href="#company">Company</a></li>
+                    <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -172,6 +172,34 @@
                         </div><!--wrapper-->
                     </section>
 
+                    <section id="company">
+                        <div class="wrapper">
+                            <div class="row">
+                                <div class="col col--alignCenter col-12 slide-up">
+                                    <h2>About SailorPay</h2>
+                                    <p class="mission-statement">Your trusted partner in payment processing solutions.</p>
+                                </div>
+                            </div><!--row-->
+
+                            <div class="row">
+                                <div class="col col--alignLeft col-6 fade-in">
+                                    <h3>Our Company</h3>
+                                    <p>SailorPay is a leading Independent Sales Organization (ISO) specializing in comprehensive payment solutions for businesses of all sizes. Founded with a vision to simplify payment processing, we have grown to become a trusted partner for merchants across various industries.</p>
+                                    <p>Our team of payment experts brings years of experience in the financial technology sector, ensuring that our clients receive the best possible service and support.</p>
+                                </div>
+                                <div class="col col--alignLeft col-6 fade-in">
+                                    <h3>Our Values</h3>
+                                    <ul>
+                                        <li><strong>Security:</strong> We prioritize the security of every transaction with industry-leading encryption and compliance standards.</li>
+                                        <li><strong>Innovation:</strong> We continuously evolve our technology to meet the changing needs of modern businesses.</li>
+                                        <li><strong>Reliability:</strong> Our robust infrastructure ensures consistent, dependable payment processing.</li>
+                                        <li><strong>Support:</strong> We provide exceptional customer service and technical support to help your business succeed.</li>
+                                    </ul>
+                                </div>
+                            </div><!--row-->
+                        </div><!--wrapper-->
+                    </section>
+
                     <section id="cta">
                         <div class="wrapper">
                             <div class="row">
@@ -179,7 +207,7 @@
                                     <h2>Ready to Navigate the World of Payments?</h2>
                                     <p>Contact us today to learn more about our payment solutions and how we can help your business grow in an increasingly digital marketplace.</p>
                                     <p>SailorPay is your trusted partner for all payment processing needs, with a focus on security, reliability, and customer satisfaction.</p>
-                                    <a href="imprint.html" class="button">Contact Us <i class="fas fa-arrow-right"></i></a>
+                                    <a href="contact.html" class="button">Contact Us <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div><!--row-->
                         </div><!--wrapper-->
@@ -197,12 +225,12 @@
                             <ul class="menu">
                                 <li class="menu-item"><a href="index.html">Home</a></li>
                                 <li class="menu-item"><a href="services.html">Services</a></li>
-                                <li class="menu-item"><a href="imprint.html">Contact Us</a></li>
+                                <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                             </ul>
 
                             <span class="widget-title">Customer Care</span>
                             <ul class="menu">
-                                <li class="menu-item"><a href="imprint.html">Support</a></li>
+                                <li class="menu-item"><a href="contact.html">Support</a></li>
                                 <li class="menu-item"><a href="https://wa.me/436763395055" target="_blank">WhatsApp</a></li>
                             </ul>
                         </div>
@@ -314,21 +342,21 @@
                     menuToggle.classList.toggle('is-active');
 
                     // Directly manipulate the style for better compatibility
-                    if (mobileMenu.style.right === '-210px' || mobileMenu.style.right === '') {
-                        mobileMenu.style.right = '0';
+                    if (mobileMenu.style.left === '-210px' || mobileMenu.style.left === '') {
+                        mobileMenu.style.left = '0';
                         mobileMenu.style.opacity = '1';
                         mobileMenu.style.visibility = 'visible';
                         mobileMenu.classList.add('active');
                         document.body.classList.add('menu-open'); // Prevent body scrolling
                     } else {
-                        mobileMenu.style.right = '-210px';
+                        mobileMenu.style.left = '-210px';
                         mobileMenu.style.opacity = '0';
                         mobileMenu.style.visibility = 'hidden';
                         mobileMenu.classList.remove('active');
                         document.body.classList.remove('menu-open'); // Re-enable body scrolling
                     }
 
-                    console.log('Hamburger clicked, mobile menu right:', mobileMenu.style.right);
+                    console.log('Hamburger clicked, mobile menu left:', mobileMenu.style.left);
                 });
             }
 
@@ -337,7 +365,7 @@
                 if (mobileMenu && mobileMenu.classList.contains('active') &&
                     !mobileMenu.contains(event.target) &&
                     !menuToggle.contains(event.target)) {
-                    mobileMenu.style.right = '-210px';
+                    mobileMenu.style.left = '-210px';
                     mobileMenu.style.opacity = '0';
                     mobileMenu.style.visibility = 'hidden';
                     mobileMenu.classList.remove('active');

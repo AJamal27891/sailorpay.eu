@@ -63,18 +63,18 @@
                     <ul id="primary-menu" class="menu">
                         <li class="menu-item"><a href="index.html">Home</a></li>
                         <li class="menu-item current-menu-item"><a href="services.html">Services</a></li>
-                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li class="menu-item"><a href="imprint.html">Imprint / Contact</a></li>
+                        <li class="menu-item"><a href="#company">Company</a></li>
+                        <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
 
-            <div class="mobile-menu" id="mobile-menu" style="right: -210px;">
+            <div class="mobile-menu" id="mobile-menu" style="left: -210px;">
                 <ul class="menu">
                     <li class="menu-item"><a href="index.html">Home</a></li>
                     <li class="menu-item current-menu-item"><a href="services.html">Services</a></li>
-                    <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li class="menu-item"><a href="imprint.html">Imprint / Contact</a></li>
+                    <li class="menu-item"><a href="#company">Company</a></li>
+                    <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -244,7 +244,7 @@
                                     <h2>Ready to Get Started?</h2>
                                     <p>Contact us today to learn more about our payment solutions and how we can help your business grow. Our team of payment experts is ready to assist you in finding the right solution for your specific needs.</p>
                                     <p>SailorPay is committed to providing exceptional service and support throughout your payment journey. Let us help you navigate the world of payments with confidence.</p>
-                                    <a href="contact.html" class="button">Contact Us</a>
+                                    <a href="contact.html" class="button">Contact Us <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div><!--row-->
                         </div><!--wrapper-->
@@ -263,12 +263,12 @@
                             <ul class="menu">
                                 <li class="menu-item"><a href="index.html">Home</a></li>
                                 <li class="menu-item"><a href="services.html">Services</a></li>
-                                <li class="menu-item"><a href="imprint.html">Contact Us</a></li>
+                                <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                             </ul>
 
                             <span class="widget-title">Customer Care</span>
                             <ul class="menu">
-                                <li class="menu-item"><a href="imprint.html">Support</a></li>
+                                <li class="menu-item"><a href="contact.html">Support</a></li>
                                 <li class="menu-item"><a href="https://wa.me/436763395055" target="_blank">WhatsApp</a></li>
                             </ul>
                         </div>
@@ -370,21 +370,21 @@
                     menuToggle.classList.toggle('is-active');
 
                     // Directly manipulate the style for better compatibility
-                    if (mobileMenu.style.right === '-210px' || mobileMenu.style.right === '') {
-                        mobileMenu.style.right = '0';
+                    if (mobileMenu.style.left === '-210px' || mobileMenu.style.left === '') {
+                        mobileMenu.style.left = '0';
                         mobileMenu.style.opacity = '1';
                         mobileMenu.style.visibility = 'visible';
                         mobileMenu.classList.add('active');
                         document.body.classList.add('menu-open'); // Prevent body scrolling
                     } else {
-                        mobileMenu.style.right = '-210px';
+                        mobileMenu.style.left = '-210px';
                         mobileMenu.style.opacity = '0';
                         mobileMenu.style.visibility = 'hidden';
                         mobileMenu.classList.remove('active');
                         document.body.classList.remove('menu-open'); // Re-enable body scrolling
                     }
 
-                    console.log('Hamburger clicked, mobile menu right:', mobileMenu.style.right);
+                    console.log('Hamburger clicked, mobile menu left:', mobileMenu.style.left);
                 });
             }
 
@@ -393,7 +393,7 @@
                 if (mobileMenu && mobileMenu.classList.contains('active') &&
                     !mobileMenu.contains(event.target) &&
                     !menuToggle.contains(event.target)) {
-                    mobileMenu.style.right = '-210px';
+                    mobileMenu.style.left = '-210px';
                     mobileMenu.style.opacity = '0';
                     mobileMenu.style.visibility = 'hidden';
                     mobileMenu.classList.remove('active');
