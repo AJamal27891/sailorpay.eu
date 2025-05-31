@@ -34,6 +34,71 @@
     <link rel="stylesheet" href="css/icons.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/payment-logos.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/hero-banner.css" type="text/css" media="all">
+
+    <!-- Custom Contact Button Styles -->
+    <style>
+        /* Fix hero section overlapping issues */
+        #hero.hero-section.full-width {
+            position: relative !important;
+            z-index: 1 !important;
+            overflow: visible !important;
+        }
+
+        .hero-content {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+
+        .contact-cta {
+            clear: both;
+            margin-top: 25px !important;
+            position: relative !important;
+            z-index: 1000 !important;
+            overflow: visible !important;
+        }
+
+        .contact-btn {
+            position: relative !important;
+            z-index: 1001 !important;
+            pointer-events: auto !important;
+            display: inline-block !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            transform: translateY(0) !important;
+            box-shadow: 0 4px 8px rgba(34, 97, 145, 0.3) !important;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 12px rgba(34, 97, 145, 0.4) !important;
+            background-color: #184a73 !important;
+            color: #ffffff !important;
+        }
+
+        .contact-btn:active {
+            transform: translateY(0) !important;
+            box-shadow: 0 2px 4px rgba(34, 97, 145, 0.3) !important;
+        }
+
+        .contact-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Ensure no other elements interfere */
+        .full-width-banner::before {
+            z-index: 1 !important;
+        }
+
+        .col.col--alignLeft.col-7.slide-in-left {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+    </style>
 </head>
 
 <body class="page-template-default page">
@@ -94,13 +159,9 @@
                                     <div class="hero-content">
                                         <h2 class="hero-subtitle">Ready to partner with us for streamlined payment solutions?</h2>
                                         <p>Choose us for Merchant Account Setup, Payment Orchestration, and Banking Solutions - your business's right choice.</p>
-                                        <form id="email-form" class="email-form">
-                                            <div class="form-group">
-                                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                                                <button type="submit" class="button primary-button">Subscribe <i class="fas fa-arrow-right"></i></button>
-                                            </div>
-                                            <div id="subscription-message" class="subscription-message" style="display: none;"></div>
-                                        </form>
+                                        <div class="contact-cta" style="margin-top: 20px; position: relative; z-index: 100;">
+                                            <a href="contact.html" class="button primary-button contact-btn" style="position: relative; z-index: 101; pointer-events: auto; display: inline-block; cursor: pointer;">Contact Us <i class="fas fa-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col col--alignLeft col-5 slide-in-right">
@@ -434,44 +495,7 @@
                 cookieConsent.classList.remove('active');
             });
 
-            // Email form validation
-            const emailForm = document.getElementById('email-form');
-            const emailInput = document.getElementById('email');
-            const subscriptionMessage = document.getElementById('subscription-message');
 
-            if (emailForm) {
-                emailForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    // Simple email validation
-                    const emailValue = emailInput.value.trim();
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                    // Remove any existing error messages
-                    const existingError = emailForm.querySelector('.error-message');
-                    if (existingError) {
-                        existingError.remove();
-                    }
-
-                    emailInput.classList.remove('error');
-                    subscriptionMessage.style.display = 'none';
-
-                    if (!emailRegex.test(emailValue)) {
-                        // Show error
-                        emailInput.classList.add('error');
-                        const errorMessage = document.createElement('div');
-                        errorMessage.className = 'error-message';
-                        errorMessage.textContent = 'Please enter a valid email address';
-                        emailForm.querySelector('.form-group').insertAdjacentElement('afterend', errorMessage);
-                    } else {
-                        // Success - show success message
-                        subscriptionMessage.textContent = 'Thank you for subscribing!';
-                        subscriptionMessage.className = 'subscription-message success';
-                        subscriptionMessage.style.display = 'block';
-                        emailInput.value = '';
-                    }
-                });
-            }
         });
     </script>
     <script src="js/modern.js"></script>
