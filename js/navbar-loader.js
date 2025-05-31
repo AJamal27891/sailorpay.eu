@@ -80,10 +80,27 @@ document.addEventListener('DOMContentLoaded', function() {
                             </li>
                             <li class="menu-item" data-page="company"><a href="company.html">Company</a></li>
                             <li class="menu-item" data-page="contact"><a href="contact.html">Contact</a></li>
-                            <li class="menu-item" data-page="imprint"><a href="imprint.html">Imprint</a></li>
-                            <li class="menu-item" data-page="privacy-policy"><a href="privacy-policy.html">Privacy Policy</a></li>
                         </ul>
                     </nav>
+                </div>
+
+                <div class="mobile-menu" id="mobile-menu" style="left: -210px;">
+                    <ul class="menu">
+                        <li class="menu-item" data-page="index"><a href="index.html">Home</a></li>
+                        <li class="menu-item has-dropdown" data-page="services">
+                            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="services.html#merchant-account">Merchant Account Setup</a></li>
+                                <li class="menu-item"><a href="services.html#payment-gateway">Payment Gateway</a></li>
+                                <li class="menu-item"><a href="services.html#payment-orchestration">Payment Orchestration</a></li>
+                                <li class="menu-item"><a href="services.html#banking-services">Banking Services</a></li>
+                                <li class="menu-item"><a href="services.html#payment-methods">Payment Methods</a></li>
+                                <li class="menu-item"><a href="services.html#pos">POS</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item" data-page="company"><a href="company.html">Company</a></li>
+                        <li class="menu-item" data-page="contact"><a href="contact.html">Contact</a></li>
+                    </ul>
                 </div>
             </header>
         `;

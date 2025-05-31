@@ -42,40 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize sticky header
     initStickyHeader();
 
-    // Mobile menu toggle - with dynamic loading support
-    function initMobileMenu() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            menuToggle.classList.toggle('is-active');
-
-            // Prevent scrolling when menu is open
-            if (mobileMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target) && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                menuToggle.classList.remove('is-active');
-                document.body.style.overflow = '';
-            }
-        });
-        } else {
-            // Menu elements not found, try again later
-            setTimeout(initMobileMenu, 100);
-        }
-    }
-
-    // Initialize mobile menu
-    initMobileMenu();
+    // Mobile menu functionality is now handled by navbar-loader.js
 
     // Animate elements on scroll
     const animateElements = document.querySelectorAll('.fade-in, .slide-up, .slide-in-left, .slide-in-right');
