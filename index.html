@@ -126,7 +126,16 @@
                 <nav id="site-navigation" class="main-navigation">
                     <ul id="primary-menu" class="menu">
                         <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-                        <li class="menu-item"><a href="services.html">Services</a></li>
+                        <li class="menu-item has-dropdown">
+                            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="services.html#merchant-account">Merchant Account Setup</a></li>
+                                <li class="menu-item"><a href="services.html#payment-gateway">Payment Gateway</a></li>
+                                <li class="menu-item"><a href="services.html#payment-orchestration">Payment Orchestration</a></li>
+                                <li class="menu-item"><a href="services.html#banking-services">Banking Services</a></li>
+                                <li class="menu-item"><a href="services.html#payment-methods">Payment Methods</a></li>
+                            </ul>
+                        </li>
                         <li class="menu-item"><a href="#company">Company</a></li>
                         <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                     </ul>
@@ -136,7 +145,16 @@
             <div class="mobile-menu" id="mobile-menu" style="left: -210px;">
                 <ul class="menu">
                     <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-                    <li class="menu-item"><a href="services.html">Services</a></li>
+                    <li class="menu-item has-dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="services.html#merchant-account">Merchant Account Setup</a></li>
+                            <li class="menu-item"><a href="services.html#payment-gateway">Payment Gateway</a></li>
+                            <li class="menu-item"><a href="services.html#payment-orchestration">Payment Orchestration</a></li>
+                            <li class="menu-item"><a href="services.html#banking-services">Banking Services</a></li>
+                            <li class="menu-item"><a href="services.html#payment-methods">Payment Methods</a></li>
+                        </ul>
+                    </li>
                     <li class="menu-item"><a href="#company">Company</a></li>
                     <li class="menu-item"><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -462,15 +480,26 @@
             window.addEventListener('scroll', handleScroll, { passive: true });
 
             // Mobile dropdown menu
-            const mobileMenuItems = document.querySelectorAll('.slide-menu ul li');
+            const mobileMenuItems = document.querySelectorAll('.mobile-menu ul li.has-dropdown');
 
             mobileMenuItems.forEach(function(item) {
-                if (item.querySelector('.sub-menu')) {
-                    item.addEventListener('click', function(e) {
-                        if (e.target === item.querySelector('a') || e.target === item) {
-                            e.preventDefault();
-                            item.classList.toggle('active');
-                        }
+                const link = item.querySelector('a');
+                const submenu = item.querySelector('.sub-menu');
+
+                if (link && submenu) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // Toggle active class
+                        item.classList.toggle('active');
+
+                        // Close other open dropdowns
+                        mobileMenuItems.forEach(function(otherItem) {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
                     });
                 }
             });

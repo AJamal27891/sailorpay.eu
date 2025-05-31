@@ -43,21 +43,23 @@
 
 /* Dropdown Menu */
 .main-navigation ul li .sub-menu,
-.slide-menu ul li .sub-menu {
+.mobile-menu ul li .sub-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 220px;
     z-index: 999;
-    padding: 10px 0;
-    border-radius: 4px;
+    padding: 8px 0;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .main-navigation ul li:hover > .sub-menu {
     display: block;
+    animation: fadeInDown 0.3s ease;
 }
 
 .main-navigation ul li .sub-menu li {
@@ -66,36 +68,100 @@
 }
 
 .main-navigation ul li .sub-menu li a {
-    padding: 8px 15px;
+    padding: 10px 16px;
     display: block;
     font-weight: 400;
     font-size: 14px;
+    color: #333;
+    text-shadow: none;
+    border-bottom: none;
+    transition: all 0.2s ease;
 }
 
 .main-navigation ul li .sub-menu li a:hover {
-    background-color: #f5f5f5;
+    background-color: #f8f9fa;
+    color: #226191;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+/* Dropdown arrow styling */
+.main-navigation ul li.has-dropdown > a i,
+.mobile-menu ul li.has-dropdown > a i {
+    margin-left: 5px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.main-navigation ul li.has-dropdown:hover > a i {
+    transform: rotate(180deg);
+}
+
+/* Animation for dropdown */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Mobile Dropdown */
-.slide-menu ul li {
+.mobile-menu ul li {
     position: relative;
 }
 
-.slide-menu ul li .sub-menu {
+.mobile-menu ul li .sub-menu {
     position: static;
     display: none;
     box-shadow: none;
     padding-left: 20px;
     background: transparent;
+    border: none;
+    border-radius: 0;
+    margin-top: 5px;
 }
 
-.slide-menu ul li.active > .sub-menu {
+.mobile-menu ul li.active > .sub-menu {
     display: block;
+    animation: slideDown 0.3s ease;
 }
 
-.slide-menu ul li a {
-    display: block;
-    padding: 10px 0;
+.mobile-menu ul li .sub-menu li a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu ul li .sub-menu li a:hover {
+    color: #fff;
+    padding-left: 10px;
+    background: transparent;
+}
+
+.mobile-menu ul li.has-dropdown > a {
+    position: relative;
+    cursor: pointer;
+}
+
+.mobile-menu ul li.has-dropdown.active > a i {
+    transform: rotate(180deg);
+}
+
+/* Animation for mobile dropdown */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
 }
 
 /* Top Contact Info */
