@@ -254,3 +254,113 @@
         background-position: 0% 50%;
     }
 }
+
+/* Rolling Services Strip */
+#services-strip {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 20px 0;
+    margin: 40px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.services-rolling-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.services-rolling-track {
+    display: flex;
+    width: 200%; /* Exactly double width for seamless loop */
+    animation: rollLeft 30s linear infinite;
+    gap: 20px;
+    padding-left: 20px; /* Start with some padding */
+}
+
+.service-item {
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.service-item i {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.service-item:hover i {
+    color: white;
+}
+
+.service-item span {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+@keyframes rollLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-item {
+        min-width: 180px;
+        padding: 12px 20px;
+        gap: 10px;
+    }
+
+    .service-item span {
+        font-size: 13px;
+    }
+
+    .service-item i {
+        font-size: 18px;
+    }
+
+    .services-rolling-track {
+        animation-duration: 25s; /* Slightly faster on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        min-width: 160px;
+        padding: 10px 18px;
+    }
+
+    .service-item span {
+        font-size: 12px;
+    }
+
+    .service-item i {
+        font-size: 16px;
+    }
+}

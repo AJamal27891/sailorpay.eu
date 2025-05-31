@@ -120,6 +120,63 @@
                         </div><!--wrapper-->
                     </section>
 
+                    <!-- Rolling Services Strip -->
+                    <section id="services-strip">
+                        <div class="services-rolling-container">
+                            <div class="services-rolling-track">
+                                <div class="service-item" data-target="#merchant-account">
+                                    <i class="fas fa-user-cog"></i>
+                                    <span>Merchant Account Setup</span>
+                                </div>
+                                <div class="service-item" data-target="#payment-gateway">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Payment Gateway</span>
+                                </div>
+                                <div class="service-item" data-target="#payment-orchestration">
+                                    <i class="fas fa-network-wired"></i>
+                                    <span>Payment Orchestration</span>
+                                </div>
+                                <div class="service-item" data-target="#banking-services">
+                                    <i class="fas fa-university"></i>
+                                    <span>Banking Services</span>
+                                </div>
+                                <div class="service-item" data-target="#payment-methods">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Payment Methods</span>
+                                </div>
+                                <div class="service-item" data-target="#pos">
+                                    <i class="fas fa-cash-register"></i>
+                                    <span>POS Solutions</span>
+                                </div>
+                                <!-- Duplicate items for seamless loop -->
+                                <div class="service-item" data-target="#merchant-account">
+                                    <i class="fas fa-user-cog"></i>
+                                    <span>Merchant Account Setup</span>
+                                </div>
+                                <div class="service-item" data-target="#payment-gateway">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Payment Gateway</span>
+                                </div>
+                                <div class="service-item" data-target="#payment-orchestration">
+                                    <i class="fas fa-network-wired"></i>
+                                    <span>Payment Orchestration</span>
+                                </div>
+                                <div class="service-item" data-target="#banking-services">
+                                    <i class="fas fa-university"></i>
+                                    <span>Banking Services</span>
+                                </div>
+                                <div class="service-item" data-target="#payment-methods">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Payment Methods</span>
+                                </div>
+                                <div class="service-item" data-target="#pos">
+                                    <i class="fas fa-cash-register"></i>
+                                    <span>POS Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <section id="merchant-account">
                         <div class="wrapper">
                             <div class="row">
@@ -367,6 +424,38 @@
                     });
                 }
             });
+
+            // Rolling Services Strip functionality
+            const servicesStrip = document.querySelector('.services-rolling-track');
+            const serviceItems = document.querySelectorAll('.service-item');
+
+            if (servicesStrip && serviceItems.length > 0) {
+                // Add click event listeners to service items
+                serviceItems.forEach(function(item) {
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = this.getAttribute('data-target');
+                        if (target) {
+                            const targetElement = document.querySelector(target);
+                            if (targetElement) {
+                                targetElement.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+
+                // Pause animation on hover
+                servicesStrip.addEventListener('mouseenter', function() {
+                    this.style.animationPlayState = 'paused';
+                });
+
+                servicesStrip.addEventListener('mouseleave', function() {
+                    this.style.animationPlayState = 'running';
+                });
+            }
         });
     </script>
     <script src="js/modern.js"></script>
