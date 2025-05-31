@@ -189,6 +189,7 @@
     font-size: 16px;
 }
 
+/* Legacy styles - keeping for backward compatibility but overridden by header-contact-info styles */
 .email-link {
     padding: 5px 10px;
 }
@@ -219,10 +220,10 @@
     font-size: 18px;
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - Base Styles */
 .hamburger {
-    display: block; /* Always show the hamburger menu */
-    padding: 10px;
+    display: block !important; /* Always show the hamburger menu */
+    padding: 8px;
     cursor: pointer;
     transition-property: opacity, filter;
     transition-duration: 0.15s;
@@ -235,6 +236,7 @@
     margin: 0;
     overflow: visible;
     z-index: 1000;
+    position: relative; /* Ensure proper positioning */
 }
 
 .header-wrapper {
@@ -249,6 +251,10 @@
 .header-contact-info {
     display: flex;
     align-items: center;
+    gap: 10px; /* Add consistent spacing between items */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: flex-end; /* Align items to the right */
+    min-height: 50px; /* Ensure minimum height */
 }
 
 @media (min-width: 993px) {
@@ -258,32 +264,81 @@
 }
 
 .header-contact-info a {
-    margin-right: 15px;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    flex-shrink: 0; /* Prevent icons from shrinking */
 }
 
-.email-link {
-    background-color: rgba(255, 255, 255, 0.1);
+.header-contact-info .email-link {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.linkedin-link {
+.header-contact-info .linkedin-link {
     background-color: #0077B5;
 }
 
-.whatsapp-link {
+.header-contact-info .whatsapp-link {
     background-color: #25D366;
 }
 
 .header-contact-info a:hover {
     opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* Hamburger specific styling within header-contact-info */
+.header-contact-info .hamburger {
+    margin-left: 5px !important; /* Small gap between icons and hamburger */
+    padding: 8px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+    display: block !important;
+    position: static !important; /* Override any absolute positioning */
+    transform: none !important; /* Reset any transforms */
+    width: auto !important;
+    height: auto !important;
+    flex-shrink: 0 !important; /* Prevent hamburger from shrinking */
+    min-width: 46px; /* Ensure minimum width for hamburger */
+}
+
+/* Responsive adjustments for header contact info */
+@media (max-width: 480px) {
+    .header-contact-info {
+        gap: 8px; /* Reduce gap on smaller screens */
+    }
+
+    .header-contact-info a {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .header-contact-info .hamburger {
+        margin-left: 3px;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    .header-contact-info {
+        gap: 5px; /* Further reduce gap on very small screens */
+    }
+
+    .header-contact-info a {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
 }
 
 .mobile-menu {
@@ -347,14 +402,7 @@ body.menu-open {
     transform: translateY(-10px);
 }
 
-.hamburger {
-    display: block !important;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: all 0.3s ease;
-}
-
+/* Mobile menu transition */
 .mobile-menu {
     transition: left 0.3s ease-in-out, opacity 0.3s ease;
 }

@@ -38,41 +38,8 @@
 </head>
 <body>
     <div id="page" class="site">
-        <header id="masthead" class="site-header">
-            <div class="wrapper header-wrapper">
-                <div class="site-branding">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="SailorPay" width="150" height="50">
-                    </a>
-                </div>
-
-                <div class="header-contact-info">
-                    <button type="button" aria-label="Menu" aria-controls="navigation" class="hamburger hamburger--spin" id="menu-toggle">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </button>
-                </div>
-
-                <nav id="site-navigation" class="main-navigation">
-                    <ul id="primary-menu" class="menu">
-                        <li class="menu-item"><a href="index.html">Home</a></li>
-                        <li class="menu-item"><a href="services.html">Services</a></li>
-                        <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li class="menu-item current-menu-item"><a href="imprint.html">Imprint / Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="mobile-menu" id="mobile-menu" style="right: -210px;">
-                <ul class="menu">
-                    <li class="menu-item"><a href="index.html">Home</a></li>
-                    <li class="menu-item"><a href="services.html">Services</a></li>
-                    <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li class="menu-item current-menu-item"><a href="imprint.html">Imprint / Contact</a></li>
-                </ul>
-            </div>
-        </header><!-- #masthead -->
+        <!-- Navbar will be loaded here -->
+        <div id="navbar-container"></div>
 
         <main id="content" class="site-content">
             <section class="page-banner">
@@ -140,93 +107,8 @@
         <div id="footer-container"></div>
     </div><!-- #page -->
 
-    <!-- JavaScript for menu functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger menu toggle
-            const menuToggle = document.querySelector('.hamburger');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    menuToggle.classList.toggle('is-active');
-
-                    // Directly manipulate the style for better compatibility
-                    if (mobileMenu.style.right === '-210px' || mobileMenu.style.right === '') {
-                        mobileMenu.style.right = '0';
-                        mobileMenu.style.opacity = '1';
-                        mobileMenu.style.visibility = 'visible';
-                        mobileMenu.classList.add('active');
-                        document.body.classList.add('menu-open'); // Prevent body scrolling
-                    } else {
-                        mobileMenu.style.right = '-210px';
-                        mobileMenu.style.opacity = '0';
-                        mobileMenu.style.visibility = 'hidden';
-                        mobileMenu.classList.remove('active');
-                        document.body.classList.remove('menu-open'); // Re-enable body scrolling
-                    }
-
-                    console.log('Hamburger clicked, mobile menu right:', mobileMenu.style.right);
-                });
-            }
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (mobileMenu && mobileMenu.classList.contains('active') &&
-                    !mobileMenu.contains(event.target) &&
-                    !menuToggle.contains(event.target)) {
-                    mobileMenu.style.right = '-210px';
-                    mobileMenu.style.opacity = '0';
-                    mobileMenu.style.visibility = 'hidden';
-                    mobileMenu.classList.remove('active');
-                    menuToggle.classList.remove('is-active');
-                    document.body.classList.remove('menu-open'); // Re-enable body scrolling
-                }
-            });
-
-            // Logo animation on scroll - simplified to only affect logo size
-            const header = document.querySelector('.site-header');
-            let scrollTimer;
-            let lastScrollTop = 0;
-
-            function handleScroll() {
-                const currentScrollTop = window.scrollY;
-
-                // Only trigger the animation when scrolling down past the threshold
-                if (currentScrollTop > 50 && currentScrollTop > lastScrollTop) {
-                    if (!header.classList.contains('scrolled')) {
-                        header.classList.add('scrolled');
-                    }
-                } else if (currentScrollTop < 30 || currentScrollTop < lastScrollTop) {
-                    if (header.classList.contains('scrolled')) {
-                        header.classList.remove('scrolled');
-                    }
-                }
-
-                lastScrollTop = currentScrollTop;
-            }
-
-            // Use passive event listener for better performance
-            window.addEventListener('scroll', handleScroll, { passive: true });
-
-            // Mobile dropdown menu
-            const mobileMenuItems = document.querySelectorAll('.slide-menu ul li');
-
-            mobileMenuItems.forEach(function(item) {
-                if (item.querySelector('.sub-menu')) {
-                    item.addEventListener('click', function(e) {
-                        if (e.target === item.querySelector('a') || e.target === item) {
-                            e.preventDefault();
-                            item.classList.toggle('active');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
     <script src="js/modern.js"></script>
+    <script src="js/navbar-loader.js"></script>
     <script src="js/footer-loader.js"></script>
 </body>
 </html>
