@@ -19,23 +19,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Sticky header
-    const header = document.querySelector('.site-header');
-    const headerHeight = header.offsetHeight;
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('sticky');
-        } else {
-            header.classList.remove('sticky');
+    // Sticky header - with null check for dynamic loading
+    function initStickyHeader() {
+        const header = document.querySelector('.site-header');
+        if (!header) {
+            // Header not loaded yet, try again in a moment
+            setTimeout(initStickyHeader, 100);
+            return;
         }
-    });
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+        const headerHeight = header.offsetHeight;
 
-    if (menuToggle && mobileMenu) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    }
+
+    // Initialize sticky header
+    initStickyHeader();
+
+    // Mobile menu toggle - with dynamic loading support
+    function initMobileMenu() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             menuToggle.classList.toggle('is-active');
@@ -56,7 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.style.overflow = '';
             }
         });
+        } else {
+            // Menu elements not found, try again later
+            setTimeout(initMobileMenu, 100);
+        }
     }
+
+    // Initialize mobile menu
+    initMobileMenu();
 
     // Animate elements on scroll
     const animateElements = document.querySelectorAll('.fade-in, .slide-up, .slide-in-left, .slide-in-right');

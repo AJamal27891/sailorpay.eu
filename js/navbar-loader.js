@@ -13,18 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const isInSubfolder = currentPath.includes('/') && currentPath !== '/';
         const navbarPath = isInSubfolder ? '../includes/navbar.html' : 'includes/navbar.html';
 
-        // Check if we're on GitHub Pages or similar static hosting
-        const isGitHubPages = window.location.hostname.includes('github.io') ||
-                             window.location.hostname.includes('githubusercontent.com') ||
-                             window.location.protocol === 'file:';
-
-        if (isGitHubPages) {
-            console.warn('Static hosting detected - using fallback navbar');
-            loadFallbackNavbar();
-            return;
-        }
-
-        // Fetch and load navbar
+        // Try to fetch navbar, fallback to static if it fails
         fetch(navbarPath)
             .then(response => {
                 if (!response.ok) {

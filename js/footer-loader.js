@@ -13,18 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const isInSubfolder = currentPath.includes('/') && currentPath !== '/';
         const footerPath = isInSubfolder ? '../includes/footer.html' : 'includes/footer.html';
 
-        // Check if we're on GitHub Pages or similar static hosting
-        const isGitHubPages = window.location.hostname.includes('github.io') ||
-                             window.location.hostname.includes('githubusercontent.com') ||
-                             window.location.protocol === 'file:';
-
-        if (isGitHubPages) {
-            console.warn('Static hosting detected - using fallback footer');
-            loadFallbackFooter();
-            return;
-        }
-
-        // Fetch and load footer
+        // Try to fetch footer, fallback to static if it fails
         fetch(footerPath)
             .then(response => {
                 if (!response.ok) {
