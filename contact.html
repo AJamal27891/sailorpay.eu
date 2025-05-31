@@ -81,6 +81,116 @@
         .contact-info p {
             margin-bottom: 10px;
         }
+
+        /* Office locations styles */
+        .office-locations {
+            margin-top: 40px;
+        }
+
+        .office-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            min-height: 450px;
+        }
+
+        .office-card h3 {
+            color: #226191;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-split {
+            margin-top: 60px;
+        }
+
+        /* Social links styling */
+        .social-links a {
+            margin-right: 15px;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .telegram-link {
+            background-color: #0088cc;
+        }
+
+        .telegram-link:hover {
+            background-color: #006699;
+        }
+
+        .whatsapp-link {
+            background-color: #25d366;
+        }
+
+        .whatsapp-link:hover {
+            background-color: #1da851;
+        }
+
+        .linkedin-link {
+            background-color: #0077b5;
+        }
+
+        .linkedin-link:hover {
+            background-color: #005885;
+        }
+
+        /* Contact info links styling */
+        .contact-info .telegram-link {
+            color: #0088cc;
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .contact-info .telegram-link:hover {
+            color: #006699;
+            background-color: transparent;
+        }
+
+        .contact-info .whatsapp-link {
+            color: #25d366;
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .contact-info .whatsapp-link:hover {
+            color: #1da851;
+            background-color: transparent;
+        }
+
+        .contact-info .linkedin-link {
+            color: #0077b5;
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .contact-info .linkedin-link:hover {
+            color: #005885;
+            background-color: transparent;
+        }
     </style>
 </head>
 
@@ -110,7 +220,7 @@
                     <ul id="primary-menu" class="menu">
                         <li class="menu-item"><a href="index.html">Home</a></li>
                         <li class="menu-item"><a href="services.html">Services</a></li>
-                        <li class="menu-item"><a href="#company">Company</a></li>
+                        <li class="menu-item"><a href="company.html">Company</a></li>
                         <li class="menu-item current-menu-item"><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </nav>
@@ -120,7 +230,7 @@
                 <ul class="menu">
                     <li class="menu-item"><a href="index.html">Home</a></li>
                     <li class="menu-item"><a href="services.html">Services</a></li>
-                    <li class="menu-item"><a href="#company">Company</a></li>
+                    <li class="menu-item"><a href="company.html">Company</a></li>
                     <li class="menu-item current-menu-item"><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -142,43 +252,106 @@
                         </div><!--wrapper-->
                     </section>
 
-                    <section id="contact-details">
+                    <!-- Contact Form Section -->
+                    <section id="contact-form-section">
                         <div class="wrapper">
                             <div class="row">
-                                <div class="col col--alignLeft col-7">
-                                    <h2>Questions? Need Support?</h2>
-                                    <p>When questions arise, you want a payment processor that will be there for you. Whether you're a business owner, developer, or a paying customer, SailorPay's customer service team is here for you. With customer support for everything from technical difficulties to account inquiries, live support from SailorPay ensures that you will always have the help that you need to succeed with our state-of-the-art payment processing system.</p>
+                                <div class="col col--alignCenter col-12">
+                                    <h2>Get In Touch</h2>
+                                    <p>Questions? Need Support? We're here to help you succeed with our payment processing solutions.</p>
+                                </div>
+                            </div><!--row-->
 
+                            <div class="row">
+                                <div class="col col--alignLeft col-6">
+                                    <div class="contact-form">
+                                        <h3>Send us a Message</h3>
+                                        <form>
+                                            <input type="text" placeholder="Your Name" required>
+                                            <input type="email" placeholder="Email" required>
+                                            <input type="text" placeholder="Company (Optional)">
+                                            <textarea placeholder="How can we help you?" rows="5" required></textarea>
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col col--alignLeft col-6">
                                     <div class="contact-info">
                                         <h3>Contact Information</h3>
                                         <p><strong>Email:</strong> <a href="mailto:office@sailorpay.eu">office@sailorpay.eu</a></p>
                                         <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/sailorpay" target="_blank" class="linkedin-link"><i class="fab fa-linkedin-in"></i> linkedin.com/company/sailorpay</a></p>
-                                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/40123456789" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> +40 123 456 789</a></p>
-                                        <p><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM (EET)</p>
+                                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/436763395055" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> +43 676 339 5055</a></p>
+                                        <p><strong>Telegram:</strong> <a href="https://t.me/sailorpay" target="_blank" class="telegram-link"><i class="fab fa-telegram-plane"></i> @sailorpay</a></p>
+                                        <p><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM (CET)</p>
 
-                                        <h3>European Office</h3>
-                                        <p>București, Sectorul 1, Calea Floreasca, nr. 133-135-137, camera 3, etaj 1, Romania</p>
-
-                                        <h3>Our Commitment</h3>
-                                        <p>At SailorPay, we're committed to providing exceptional customer service. Our team of payment experts is ready to assist you with any questions or concerns you may have about our services.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col col--alignLeft col-5">
-                                    <div class="contact-form">
-                                        <h3>Get In Touch</h3>
-                                        <form>
-                                            <input type="text" placeholder="Your Name" required>
-                                            <input type="email" placeholder="Email" required>
-                                            <textarea placeholder="How can we help you?" rows="5" required></textarea>
-                                            <button type="submit">Submit</button>
-                                        </form>
                                         <div class="social-contact-links">
                                             <p>Or reach us directly via:</p>
                                             <div class="social-links">
                                                 <a href="https://www.linkedin.com/company/sailorpay" target="_blank" class="linkedin-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                                                <a href="https://wa.me/40123456789" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                                <a href="https://wa.me/436763395055" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                                <a href="https://t.me/sailorpay" target="_blank" class="telegram-link"><i class="fab fa-telegram-plane"></i> Telegram</a>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--row-->
+                        </div><!--wrapper-->
+                    </section>
+
+                    <!-- Office Locations Section -->
+                    <section id="office-locations" class="office-locations">
+                        <div class="wrapper">
+                            <div class="row">
+                                <div class="col col--alignCenter col-12">
+                                    <h2>Our Office Locations</h2>
+                                    <p>Visit us at our offices across Europe for personalized support and consultation.</p>
+                                </div>
+                            </div><!--row-->
+
+                            <div class="row">
+                                <!-- SailorPay SL - Marbella, Spain -->
+                                <div class="col col-6">
+                                    <div class="office-card">
+                                        <h3>SailorPay SL</h3>
+                                        <p><strong>Marbella Office</strong></p>
+                                        <p>Avenida Ricardo Soriano, 29<br>
+                                        29601 Marbella, Málaga<br>
+                                        Spain</p>
+                                        <p><strong>Phone:</strong> <a href="tel:+34952123456">+34 952 123 456</a></p>
+                                        <p><strong>Email:</strong> <a href="mailto:marbella@sailorpay.eu">marbella@sailorpay.eu</a></p>
+
+                                        <div class="map-container">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.7234567890123!2d-4.8856789!3d36.5108456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDMwJzM5LjAiTiA0wrA1Myc4LjQiVw!5e0!3m2!1sen!2ses!4v1234567890123!5m2!1sen!2ses"
+                                                allowfullscreen=""
+                                                loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"
+                                                title="SailorPay SL Marbella Office Location">
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SailorPay EU - Vienna, Austria -->
+                                <div class="col col-6">
+                                    <div class="office-card">
+                                        <h3>SailorPay EU</h3>
+                                        <p><strong>Vienna Office</strong></p>
+                                        <p>Kaltenleutgebnerstraße 24/11.1A<br>
+                                        1230 Wien<br>
+                                        Austria</p>
+                                        <p><strong>Phone:</strong> <a href="tel:+436763395055">+43 676 339 5055</a></p>
+                                        <p><strong>Email:</strong> <a href="mailto:office@sailorpay.eu">office@sailorpay.eu</a></p>
+
+                                        <div class="map-container">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.234567890123!2d16.2856789!3d48.1408456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d9b7c8b123456%3A0x789abcdef0123456!2sKaltenleutgebnerstra%C3%9Fe%2024%2C%201230%20Wien%2C%20Austria!5e0!3m2!1sen!2sat!4v1234567890123!5m2!1sen!2sat"
+                                                allowfullscreen=""
+                                                loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"
+                                                title="SailorPay EU Vienna Office Location">
+                                            </iframe>
                                         </div>
                                     </div>
                                 </div>
