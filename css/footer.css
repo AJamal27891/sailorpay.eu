@@ -11,6 +11,11 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-menus .row {
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .widget-title {
     color: #fff;
     font-size: 14px;
