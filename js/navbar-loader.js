@@ -1,3 +1,14 @@
+// Google Translate initialization function (global scope)
+function googleTranslateElementInit() {
+    console.log('👉 googleTranslateElementInit() called');
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,de,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element_hidden');
+}
+
 // Navbar Loader - Loads centralized navbar across all pages
 document.addEventListener('DOMContentLoaded', function() {
     // Function to load navbar
@@ -26,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Initialize navbar features after loading
                 initializeNavbarFeatures();
+
+                // Initialize Language Switcher
+                initializeLanguageSwitcher();
             })
             .catch(error => {
                 console.error('Error loading navbar:', error);
@@ -51,6 +65,33 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
 
                     <div class="header-contact-info">
+                        <!-- Professional Language Switcher -->
+                        <div class="language-switcher">
+                            <button class="language-btn" id="language-toggle" title="Select Language">
+                                <i class="fas fa-globe"></i>
+                                <span class="current-lang">EN</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="language-dropdown" id="language-dropdown">
+                                <a href="#" data-lang="en" class="lang-option active">
+                                    <span class="flag-icon">🇬🇧</span>
+                                    <span class="lang-text">English</span>
+                                </a>
+                                <a href="#" data-lang="fr" class="lang-option">
+                                    <span class="flag-icon">🇫🇷</span>
+                                    <span class="lang-text">Français</span>
+                                </a>
+                                <a href="#" data-lang="de" class="lang-option">
+                                    <span class="flag-icon">🇩🇪</span>
+                                    <span class="lang-text">Deutsch</span>
+                                </a>
+                                <a href="#" data-lang="es" class="lang-option">
+                                    <span class="flag-icon">🇪🇸</span>
+                                    <span class="lang-text">Español</span>
+                                </a>
+                            </div>
+                        </div>
+
                         <a href="mailto:office@sailorpay.eu" class="email-link" title="Email us">
                             <i class="fas fa-envelope"></i>
                         </a>
@@ -109,6 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize navbar features after loading
         initializeNavbarFeatures();
+
+        // Initialize Language Switcher
+        initializeLanguageSwitcher();
     }
 
     // Function to initialize navbar features
@@ -258,31 +302,117 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to initialize Professional Language Switcher
+    function initializeLanguageSwitcher() {
+        const languageToggle = document.getElementById('language-toggle');
+        const languageDropdown = document.getElementById('language-dropdown');
+        const langOptions = document.querySelectorAll('.lang-option');
+        const currentLangSpan = document.querySelector('.current-lang');
+
+        if (!languageToggle || !languageDropdown) return;
+
+        // Toggle dropdown visibility
+        languageToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            languageDropdown.classList.toggle('active');
+            languageToggle.classList.toggle('active');
+        });
+
+        // Handle language selection
+        langOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const selectedLang = this.getAttribute('data-lang');
+                console.log(`🌐 User selected language: ${selectedLang}`);
+
+                // Update current language display
+                currentLangSpan.textContent = selectedLang.toUpperCase();
+
+                // Update active state
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+
+                // Close dropdown
+                languageDropdown.classList.remove('active');
+                languageToggle.classList.remove('active');
+
+                // Call the trigger with logging
+                triggerGoogleTranslate(selectedLang);
+
+                // Store language preference
+                localStorage.setItem('selectedLanguage', selectedLang);
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (
+                !languageToggle.contains(e.target) &&
+                !languageDropdown.contains(e.target)
+            ) {
+                languageDropdown.classList.remove('active');
+                languageToggle.classList.remove('active');
+            }
+        });
+
+        // Load saved language preference
+        const savedLang = localStorage.getItem('selectedLanguage');
+        if (savedLang && savedLang !== 'en') {
+            console.log(`🔁 Restoring saved language: ${savedLang}`);
+            const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
+            if (savedOption) {
+                savedOption.click();
+            }
+        }
+
+        // Initialize Google Translate in the background
+        loadGoogleTranslateScript();
+    }
+
+    // Function to trigger Google Translate
+    function triggerGoogleTranslate(langCode) {
+        console.log(`⏳ Attempting to trigger Translate for: ${langCode}`);
+        let attempts = 0;
+
+        function trySet() {
+            const combo = document.querySelector(
+                '#google_translate_element_hidden select.goog-te-combo'
+            );
+            if (combo) {
+                console.log('✅ Found goog-te-combo, setting value');
+                combo.value = langCode;
+                combo.dispatchEvent(new Event('change'));
+                console.log(`✅ Triggered translation to "${langCode}"`);
+                return;
+            }
+            attempts++;
+            if (attempts < 5) {
+                console.log(`⚙️ goog-te-combo not found; retrying (${attempts})...`);
+                setTimeout(trySet, 200);
+            } else {
+                console.warn('⚠️ Could not find goog-te-combo after multiple attempts');
+            }
+        }
+        trySet();
+    }
+
+    // Function to load Google Translate script in background
+    function loadGoogleTranslateScript() {
+        if (!window.google || !window.google.translate) {
+            console.log('📥 Loading Google Translate library...');
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            script.async = true;
+            document.head.appendChild(script);
+        } else {
+            console.log('▶️ Google Translate library already loaded');
+        }
+    }
+
     // Load the navbar
     loadNavbar();
 });
-
-// Alternative method using XMLHttpRequest for better browser compatibility
-function loadNavbarXHR() {
-    const navbarContainer = document.getElementById('navbar-container');
-    if (!navbarContainer) return;
-
-    const xhr = new XMLHttpRequest();
-    const currentPath = window.location.pathname;
-    const isInSubfolder = currentPath.includes('/') && currentPath !== '/';
-    const navbarPath = isInSubfolder ? '../includes/navbar.html' : 'includes/navbar.html';
-
-    xhr.open('GET', navbarPath, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                navbarContainer.innerHTML = xhr.responseText;
-                initializeNavbarFeatures();
-            } else {
-                console.error('Error loading navbar:', xhr.status);
-                navbarContainer.innerHTML = '<header><p>Navbar could not be loaded.</p></header>';
-            }
-        }
-    };
-    xhr.send();
-}
