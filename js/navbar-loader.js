@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const isInSubfolder = currentPath.includes('/') && currentPath !== '/';
         const navbarPath = isInSubfolder ? '../includes/navbar.html' : 'includes/navbar.html';
 
+        // Check if we're on GitHub Pages or similar static hosting
+        const isGitHubPages = window.location.hostname.includes('github.io') ||
+                             window.location.hostname.includes('githubusercontent.com') ||
+                             window.location.protocol === 'file:';
+
+        if (isGitHubPages) {
+            console.warn('Static hosting detected - using fallback navbar');
+            loadFallbackNavbar();
+            return;
+        }
+
         // Fetch and load navbar
         fetch(navbarPath)
             .then(response => {
@@ -23,15 +34,75 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(html => {
                 navbarContainer.innerHTML = html;
-                
+
                 // Initialize navbar features after loading
                 initializeNavbarFeatures();
             })
             .catch(error => {
                 console.error('Error loading navbar:', error);
-                // Fallback: show a basic navbar message
-                navbarContainer.innerHTML = '<header><p>Navbar could not be loaded.</p></header>';
+                console.warn('Falling back to static navbar');
+                // Fallback: load static navbar
+                loadFallbackNavbar();
             });
+    }
+
+    // Function to load fallback navbar for static hosting
+    function loadFallbackNavbar() {
+        const navbarContainer = document.getElementById('navbar-container');
+        if (!navbarContainer) return;
+
+        // Create static navbar HTML
+        const navbarHTML = `
+            <header id="masthead" class="site-header">
+                <div class="wrapper header-wrapper">
+                    <div class="site-branding">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="SailorPay" width="150" height="50">
+                        </a>
+                    </div>
+
+                    <div class="header-contact-info">
+                        <a href="mailto:office@sailorpay.eu" class="email-link" title="Email us">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/sailorpay" target="_blank" class="linkedin-link" title="Follow us on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <button type="button" aria-label="Menu" aria-controls="navigation" class="hamburger hamburger--spin" id="menu-toggle">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <nav id="site-navigation" class="main-navigation">
+                        <ul id="primary-menu" class="menu">
+                            <li class="menu-item" data-page="index"><a href="index.html">Home</a></li>
+                            <li class="menu-item has-dropdown" data-page="services">
+                                <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item"><a href="services.html#merchant-account">Merchant Account Setup</a></li>
+                                    <li class="menu-item"><a href="services.html#payment-gateway">Payment Gateway</a></li>
+                                    <li class="menu-item"><a href="services.html#payment-orchestration">Payment Orchestration</a></li>
+                                    <li class="menu-item"><a href="services.html#banking-services">Banking Services</a></li>
+                                    <li class="menu-item"><a href="services.html#compliance">Compliance & Security</a></li>
+                                    <li class="menu-item"><a href="services.html#support">24/7 Support</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item" data-page="company"><a href="company.html">Company</a></li>
+                            <li class="menu-item" data-page="contact"><a href="contact.html">Contact</a></li>
+                            <li class="menu-item" data-page="imprint"><a href="imprint.html">Imprint</a></li>
+                            <li class="menu-item" data-page="privacy-policy"><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        `;
+
+        navbarContainer.innerHTML = navbarHTML;
+
+        // Initialize navbar features after loading
+        initializeNavbarFeatures();
     }
 
     // Function to initialize navbar features

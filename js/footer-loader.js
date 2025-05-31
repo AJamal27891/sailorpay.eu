@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const isInSubfolder = currentPath.includes('/') && currentPath !== '/';
         const footerPath = isInSubfolder ? '../includes/footer.html' : 'includes/footer.html';
 
+        // Check if we're on GitHub Pages or similar static hosting
+        const isGitHubPages = window.location.hostname.includes('github.io') ||
+                             window.location.hostname.includes('githubusercontent.com') ||
+                             window.location.protocol === 'file:';
+
+        if (isGitHubPages) {
+            console.warn('Static hosting detected - using fallback footer');
+            loadFallbackFooter();
+            return;
+        }
+
         // Fetch and load footer
         fetch(footerPath)
             .then(response => {
@@ -23,15 +34,136 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(html => {
                 footerContainer.innerHTML = html;
-                
+
                 // Trigger any footer-specific JavaScript after loading
                 initializeFooterFeatures();
             })
             .catch(error => {
                 console.error('Error loading footer:', error);
-                // Fallback: show a basic footer message
-                footerContainer.innerHTML = '<footer><p>Footer could not be loaded.</p></footer>';
+                console.warn('Falling back to static footer');
+                // Fallback: load static footer
+                loadFallbackFooter();
             });
+    }
+
+    // Function to load fallback footer for static hosting
+    function loadFallbackFooter() {
+        const footerContainer = document.getElementById('footer-container');
+        if (!footerContainer) return;
+
+        // Create static footer HTML
+        const footerHTML = `
+            <footer id="colophon" class="site-footer">
+                <section class="footer-menus">
+                    <div class="wrapper">
+                        <div class="row fade-in">
+                            <div class="col col-2">
+                                <span class="widget-title">Company</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="index.html">Home</a></li>
+                                    <li class="menu-item"><a href="services.html">Services</a></li>
+                                    <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+                                </ul>
+
+                                <span class="widget-title">Customer Care</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="contact.html">Support</a></li>
+                                    <li class="menu-item"><a href="https://wa.me/436763395055" target="_blank">WhatsApp</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col col-2">
+                                <span class="widget-title">Products</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="services.html#merchant-account">Merchant Account Setup</a></li>
+                                    <li class="menu-item"><a href="https://xolvispay.paymentsandbox.cloud/documentation/apiv3?php" target="_blank">Payment Gateway</a></li>
+                                    <li class="menu-item"><a href="https://xolvis.com/xolvis-pay-features/" target="_blank">Payment Orchestration</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col col-2">
+                                <span class="widget-title">Payment Methods</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="services.html#payment-methods">Credit Cards</a></li>
+                                    <li class="menu-item"><a href="services.html#payment-methods">Debit Cards</a></li>
+                                    <li class="menu-item"><a href="services.html#payment-methods">Alternative Payments</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col col-2">
+                                <span class="widget-title">Industries</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="services.html">E-commerce</a></li>
+                                    <li class="menu-item"><a href="services.html">Retail</a></li>
+                                    <li class="menu-item"><a href="services.html">Travel</a></li>
+                                    <li class="menu-item"><a href="services.html">Digital Services</a></li>
+                                    <li class="menu-item"><a href="services.html">Other Industries</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col col-2">
+                                <span class="widget-title">Resources</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="#">API Documentation</a></li>
+                                    <li class="menu-item"><a href="#">Integration Guides</a></li>
+                                    <li class="menu-item"><a href="services.html#secure-transactions">PCI Compliance</a></li>
+                                </ul>
+
+                                <span class="widget-title">Legal</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li class="menu-item"><a href="https://policies.google.com/terms" target="_blank">Terms of Service</a></li>
+                                    <li class="menu-item"><a href="imprint.html">Imprint</a></li>
+                                    <li class="menu-item"><a href="#">AML Policy</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col col-2">
+                                <span class="widget-title">Partnership</span>
+                                <ul class="menu">
+                                    <li class="menu-item"><a href="#" title="Coming Soon">Referral Program</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="footer-bottom">
+                    <div class="wrapper">
+                        <div class="footer-main">
+                            <div class="footer-left">
+                                <a class="footer-logo" href="index.html">
+                                    <img src="images/logo-footer.png" alt="SailorPay" width="150">
+                                </a>
+                            </div>
+                            <div class="footer-center">
+                                <div class="payment-logos">
+                                    <img src="images/visa-logo.png" alt="Visa" class="payment-logo-img">
+                                    <img src="images/mastercard-logo.png" alt="Mastercard" class="payment-logo-img">
+                                    <img src="images/pci-logo.png" alt="PCI DSS Compliant" class="payment-logo-img">
+                                    <img src="images/gdbr-logo.png" alt="GDPR" class="payment-logo-img">
+                                </div>
+                            </div>
+                            <div class="footer-right">
+                                <div class="footer-contact-info">
+                                    <a href="mailto:office@sailorpay.eu" class="email-link"><i class="fas fa-envelope"></i></a>
+                                    <a href="https://www.linkedin.com/company/sailorpay" target="_blank" class="linkedin-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://wa.me/436763395055" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <p class="disclaimer">&copy; 2023 SailorPay. All Rights Reserved. SailorPay is a registered payment service provider.</p>
+                        </div>
+                    </div>
+                </section>
+            </footer>
+        `;
+
+        footerContainer.innerHTML = footerHTML;
+
+        // Initialize footer features after loading
+        initializeFooterFeatures();
     }
 
     // Initialize footer-specific features after loading
